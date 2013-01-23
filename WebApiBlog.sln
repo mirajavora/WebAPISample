@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiBlog", "WebApi-Introduction\WebApiBlog.csproj", "{00057147-6023-49DA-9BAF-98EA84EA7CFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiBlog", "WebApiBlog\WebApiBlog.csproj", "{00057147-6023-49DA-9BAF-98EA84EA7CFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
