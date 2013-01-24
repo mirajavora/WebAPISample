@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span12 contacts-container">
             
         </div>
     </div>
@@ -31,3 +31,64 @@
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/handlebars.js"></script>
+
+    <script type="text/javascript">
+
+        function Contact() {
+            var compiledTemplate = undefined;
+
+            this.getAll = function() {
+                var result = callApi("/api/contact/", "GET", { });
+                $.each(result, function (index, contact) {
+                    appendContact(contact);
+                });
+            };
+
+            var callApi = function(url, method, data) {
+                var result = undefined;
+                $.ajax({
+                    async: false,
+                    url: url,
+                    type: method,
+                    data: data,
+                    dataType: "json",
+                }).done(function(data) {
+                    result = data;
+                });
+                return result;
+            };
+
+            var appendContact = function (contact) {
+                var template = getTemplate();
+                $(".contacts-container").append(template(contact));
+            };
+
+            var getTemplate = function() {
+                if (compiledTemplate == undefined) {
+                    var source = $("#contact-template").html();
+                    compiledTemplate = Handlebars.compile(source);
+                }
+                return compiledTemplate;
+            };
+        }
+
+        ;
+
+        var contactManager = new Contact();
+        $(function() {
+            contactManager.getAll();
+        });
+    </script>
+    
+    <script id="contact-template" type="text/x-handlebars-template">
+        <div class="row-fluid">
+            <div class="span6"><strong>{{Name}}</strong></div>
+        </div>
+    </script>
+}
