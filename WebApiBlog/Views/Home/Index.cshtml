@@ -32,7 +32,7 @@
                         @Html.TextBox("email")
                     </div>
                     <div class="form-actions">
-                        <a href="#" class="btn btn-success">Add new contact</a>
+                        <a href="#" class="btn btn-success btn-add">Add new contact</a>
                     </div>
                 </fieldset>
             </form>
@@ -52,14 +52,19 @@
             var compiledTemplate = undefined;
 
             this.getAll = function() {
-                var result = callApi("/api/contact/", "GET", { });
+                var result = callApi("/api/contact/", "GET", {});
+                $(".contacts-container").empty();
                 $.each(result, function (index, contact) {
                     appendContact(contact);
                 });
             };
 
             this.delete = function(id) {
-                callApi
+                callApi("/api/contact/" + id, "DELETE", {  });
+            };
+
+            this.create = function (data) {
+                callApi("/api/contact/", "POST", data);
             };
 
             var callApi = function(url, method, data) {
@@ -91,8 +96,17 @@
         };
 
         var contactManager = new Contact();
+        
         $(function() {
             contactManager.getAll();
+            $(".contacts-container").on("click", "a.btn-delete", function () {
+                contactManager.delete($(this).attr("data-id"));
+                contactManager.getAll();
+            });
+            $(".btn-add").bind("click", function() {
+                contactManager.create($("form").serialize());
+                contactManager.getAll();
+            });
         });
     </script>
     
@@ -101,7 +115,7 @@
             <td>{{Id}}</td>
             <td>{{Name}}</td>
             <td>{{Email}}</td>
-            <td></td>
+            <td><a data-id="{{Id}}" class="btn btn-danger btn-delete" href="#">Delete<a/></td>
         </tr>
     </script>
 }
