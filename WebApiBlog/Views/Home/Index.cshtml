@@ -77,6 +77,8 @@
                     dataType: "json",
                 }).done(function(data) {
                     result = data;
+                }).fail(function (data) {
+                    alert(data.status + ": " + data.statusText);
                 });
                 return result;
             };

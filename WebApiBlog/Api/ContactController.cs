@@ -11,7 +11,6 @@ namespace WebApiBlog.Api
 {
     public class ContactController : RestApiController<Contact, Guid>
     {
-        
         public ContactController(IContactRepository contactRepository) : base("DefaultApi", contactRepository)
         {
             
