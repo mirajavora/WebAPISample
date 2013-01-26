@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using WebApiBlog.Core.DataAccess;
 
 namespace WebApiBlog.Models
 {
-    public class Contact
+    public class Contact : IModelId
     {
         public Contact()
         {

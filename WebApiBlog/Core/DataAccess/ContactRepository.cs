@@ -5,7 +5,7 @@ using WebApiBlog.Models;
 
 namespace WebApiBlog.Core.DataAccess
 {
-    public class ContactRepository : IContactRepository, IRepository<Contact, Guid>
+    public class ContactRepository : IContactRepository
     {
         private readonly IList<Contact> _contacts;
 

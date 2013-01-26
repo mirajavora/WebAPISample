@@ -139,6 +139,7 @@
     <Compile Include="Core\ContainerApplication.cs" />
     <Compile Include="Core\DataAccess\ContactRepository.cs" />
     <Compile Include="Core\DataAccess\IContactRepository.cs" />
+    <Compile Include="Core\DataAccess\IModelId.cs" />
     <Compile Include="Core\DataAccess\IRepository.cs" />
     <Compile Include="Core\DependencyResolvers\WindsorDependencyResolver.cs" />
     <Compile Include="Core\DependencyResolvers\WindsorDependencyScope.cs" />

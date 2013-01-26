@@ -4,7 +4,7 @@ using WebApiBlog.Models;
 
 namespace WebApiBlog.Core.DataAccess
 {
-    public interface IContactRepository
+    public interface IContactRepository : IRepository<Contact, Guid>
     {
         Contact FindById(Guid id);
         IEnumerable<Contact> FindAll();
