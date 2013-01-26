@@ -3,6 +3,7 @@ using System.Web.Http.Controllers;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using WebApiBlog.Core.Api;
 
 namespace WebApiBlog.Core.Installers
 {
@@ -12,7 +13,7 @@ namespace WebApiBlog.Core.Installers
         {
             container.Register(Classes
                 .FromAssembly(typeof(ContainerApplication).Assembly)
-                .BasedOn<ApiController>()
+                .BasedOn<IRestApiController>()
                 .LifestyleScoped());
         }
     }

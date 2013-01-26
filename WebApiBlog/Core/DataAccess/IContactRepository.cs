@@ -10,5 +10,6 @@ namespace WebApiBlog.Core.DataAccess
         IEnumerable<Contact> FindAll();
         void Save(Contact entity);
         void Delete(Contact entity);
+        void Update(Contact entity, Guid id);
     }
 }

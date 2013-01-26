@@ -5,7 +5,7 @@ using WebApiBlog.Models;
 
 namespace WebApiBlog.Core.DataAccess
 {
-    public class ContactRepository : IContactRepository, IRepository<Contact>
+    public class ContactRepository : IContactRepository, IRepository<Contact, Guid>
     {
         private readonly IList<Contact> _contacts;
 
@@ -30,6 +30,13 @@ namespace WebApiBlog.Core.DataAccess
         public void Save(Contact entity)
         {
             _contacts.Add(entity);
+        }
+
+        public void Update(Contact entity, Guid id)
+        {
+            var contact = _contacts.FirstOrDefault(x => x.Id == id);
+            contact.Email = entity.Email;
+            contact.Name = entity.Name;
         }
 
         public void Delete(Contact entity)

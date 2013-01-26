@@ -132,9 +132,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
-    <Compile Include="Areas\Api\Controllers\ContactController.cs" />
+    <Compile Include="Api\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\Api\IRestApiController.cs" />
+    <Compile Include="Core\Api\RestApiController.cs" />
     <Compile Include="Core\ContainerApplication.cs" />
     <Compile Include="Core\DataAccess\ContactRepository.cs" />
     <Compile Include="Core\DataAccess\IContactRepository.cs" />
@@ -215,6 +216,8 @@
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\handlebars.js" />
+    <Content Include="Scripts\handlebars.runtime.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
