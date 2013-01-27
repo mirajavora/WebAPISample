@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 using WebApiBlog.Core.Api;
 using WebApiBlog.Core.DataAccess;
 using WebApiBlog.Models;
