@@ -145,6 +145,7 @@
     <Compile Include="Core\DependencyResolvers\WindsorDependencyScope.cs" />
     <Compile Include="Core\Installers\DataAccessInstaller.cs" />
     <Compile Include="Core\Installers\WebWindsorInstaller.cs" />
+    <Compile Include="Core\MediaFormatters\ImageFormatter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
