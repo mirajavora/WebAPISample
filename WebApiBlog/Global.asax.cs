@@ -6,6 +6,7 @@ using WebApiBlog.App_Start;
 using WebApiBlog.Core;
 using WebApiBlog.Core.DependencyResolvers;
 using WebApiBlog.Core.Installers;
+using WebApiBlog.Core.MediaFormatters;
 
 namespace WebApiBlog
 {
@@ -24,6 +25,8 @@ namespace WebApiBlog
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            GlobalConfiguration.Configuration.Formatters.Add(new QrMediaFormatter());
         }
 
         private void WireUpDependencyResolvers()

@@ -145,7 +145,10 @@
     <Compile Include="Core\DependencyResolvers\WindsorDependencyScope.cs" />
     <Compile Include="Core\Installers\DataAccessInstaller.cs" />
     <Compile Include="Core\Installers\WebWindsorInstaller.cs" />
-    <Compile Include="Core\MediaFormatters\ImageFormatter.cs" />
+    <Compile Include="Core\MediaFormatters\IMediaFormatter.cs" />
+    <Compile Include="Core\MediaFormatters\MediaFormatterBase.cs" />
+    <Compile Include="Core\MediaFormatters\QRMediaFormatter.cs" />
+    <Compile Include="Core\MediaFormatters\VCardMediaFormatter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
