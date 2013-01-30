@@ -117,7 +117,10 @@
             <td>{{Id}}</td>
             <td>{{Name}}</td>
             <td>{{Email}}</td>
-            <td><a data-id="{{Id}}" class="btn btn-danger btn-delete" href="#">Delete<a/></td>
+            <td>
+                <a data-id="{{Id}}" class="btn btn-info btn-qr" href="/api/contact/{{Id}}.png" target="_blank">QR<a/>
+                <a data-id="{{Id}}" class="btn btn-danger btn-delete" href="#">Delete<a/>
+            </td>
         </tr>
     </script>
 }
