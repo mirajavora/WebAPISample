@@ -5,6 +5,7 @@ using System.Web.Routing;
 using WebApiBlog.App_Start;
 using WebApiBlog.Core;
 using WebApiBlog.Core.DependencyResolvers;
+using WebApiBlog.Core.Handlers;
 using WebApiBlog.Core.Installers;
 using WebApiBlog.Core.MediaFormatters;
 
@@ -27,6 +28,7 @@ namespace WebApiBlog
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             GlobalConfiguration.Configuration.Formatters.Add(new QrMediaFormatter());
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new ResponseHeaderHandler());
         }
 
         private void WireUpDependencyResolvers()

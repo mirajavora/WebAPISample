@@ -143,6 +143,8 @@
     <Compile Include="Core\DataAccess\IRepository.cs" />
     <Compile Include="Core\DependencyResolvers\WindsorDependencyResolver.cs" />
     <Compile Include="Core\DependencyResolvers\WindsorDependencyScope.cs" />
+    <Compile Include="Core\Handlers\ResponseHeaderHandler.cs" />
+    <Compile Include="Core\Handlers\IDelegatingHandler.cs" />
     <Compile Include="Core\Installers\DataAccessInstaller.cs" />
     <Compile Include="Core\Installers\WebWindsorInstaller.cs" />
     <Compile Include="Core\MediaFormatters\IMediaFormatter.cs" />
