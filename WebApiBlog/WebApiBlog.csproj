@@ -128,12 +128,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\SecureContactController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Core\Api\IRestApiController.cs" />
     <Compile Include="Core\Api\RestApiController.cs" />
     <Compile Include="Core\ContainerApplication.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Core\DataAccess\IRepository.cs" />
     <Compile Include="Core\DependencyResolvers\WindsorDependencyResolver.cs" />
     <Compile Include="Core\DependencyResolvers\WindsorDependencyScope.cs" />
+    <Compile Include="Core\Handlers\AuthenticationHandler.cs" />
     <Compile Include="Core\Handlers\ResponseHeaderHandler.cs" />
     <Compile Include="Core\Handlers\IDelegatingHandler.cs" />
     <Compile Include="Core\Installers\DataAccessInstaller.cs" />
@@ -252,6 +255,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Security\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
