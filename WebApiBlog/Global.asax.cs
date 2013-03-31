@@ -28,12 +28,14 @@ namespace WebApiBlog
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             GlobalConfiguration.Configuration.Formatters.Add(new QrMediaFormatter());
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthenticationHandler());
             GlobalConfiguration.Configuration.MessageHandlers.Add(new ResponseHeaderHandler());
         }
 
         private void WireUpDependencyResolvers()
         {
             GlobalConfiguration.Configuration.DependencyResolver = new WindsorDependencyResolver(Container);
+            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(Container));
         }
     }
 }

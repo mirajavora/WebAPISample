@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <h1>Web API</h1>
+        <h1>Web API (/api/contact)</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -77,7 +77,7 @@
                 }).done(function(data) {
                     result = data;
                 }).fail(function (data) {
-                    alert(data.status + ": " + data.statusText);
+                    alert(method + " " + url + " - " + data.status + ": " + data.statusText);
                 });
                 return result;
             };

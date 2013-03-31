@@ -3,8 +3,8 @@ using WebApiBlog.Models;
 
 namespace WebApiBlog.Core.DataAccess
 {
-    public interface IContactRepository : IRepository<Contact, Guid>
+    public interface IUserRepository : IRepository<User, Guid>
     {
-
+         
     }
 }

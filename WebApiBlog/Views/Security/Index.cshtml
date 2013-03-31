@@ -1,8 +1,8 @@
-﻿@model dynamic
+﻿@model WebApiBlog.ViewModels.LoginModel
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <h1>Web API</h1>
+        <h1>Secure Web API (/api/secureapi)</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -18,7 +18,25 @@
         </table>
     </div>
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span6">
+            @{ Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horziontal" });}
+            <fieldset>
+                <legend>Login to access secure API</legend>
+                <div class="control-group">
+                    @Html.LabelFor(x => x.Username)
+                    @Html.TextBoxFor(x => x.Username)
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(x => x.Password)
+                    @Html.TextBoxFor(x => x.Password)
+                </div>
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-primary" value="Log In" />
+                </div>
+            </fieldset>
+            @{ Html.EndForm(); }
+        </div>
+        <div class="span6">
             <form class="form-horizontal">
                 <fieldset>
                     <legend>Add new a contact</legend>
@@ -51,7 +69,11 @@
             var compiledTemplate = undefined;
 
             this.getAll = function() {
-                var result = callApi("/api/contact/", "GET", {});
+                var result = callApi("/api/securecontact/", "GET", {});
+                if (result == undefined) {
+                    return;
+                }
+                
                 $(".contacts-container").empty();
                 $.each(result, function (index, contact) {
                     appendContact(contact);
@@ -59,11 +81,11 @@
             };
 
             this.delete = function(id) {
-                callApi("/api/contact/" + id, "DELETE", {  });
+                callApi("/api/securecontact/" + id, "DELETE", {  });
             };
 
             this.create = function (data) {
-                callApi("/api/contact/", "POST", data);
+                callApi("/api/securecontact/", "POST", data);
             };
 
             var callApi = function(url, method, data) {
@@ -77,7 +99,7 @@
                 }).done(function(data) {
                     result = data;
                 }).fail(function (data) {
-                    alert(data.status + ": " + data.statusText);
+                    alert(method + " " + url + " - " + data.status + ": " + data.statusText);
                 });
                 return result;
             };
