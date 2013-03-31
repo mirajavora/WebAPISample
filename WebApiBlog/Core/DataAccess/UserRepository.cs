@@ -14,6 +14,11 @@ namespace WebApiBlog.Core.DataAccess
             _users = new List<User>();
         }
 
+        public User FindByUsername(string username)
+        {
+            return _users.FirstOrDefault(x => x.Username.Equals(username, StringComparison.InvariantCultureIgnoreCase));
+        }
+
         public User FindById(Guid id)
         {
             return _users.FirstOrDefault(x => x.Id == id);

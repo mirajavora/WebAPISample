@@ -14,6 +14,9 @@ namespace WebApiBlog.Core.DependencyResolvers
 
         protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext, System.Type controllerType)
         {
+            if (controllerType == null)
+                return null;
+
             return _container.Resolve(controllerType) as IController;
         }
 

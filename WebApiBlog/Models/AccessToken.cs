@@ -16,7 +16,7 @@ namespace WebApiBlog.Models
             _validFrom = DateTime.UtcNow;
             _expires = _validFrom.AddMinutes(5);
             _userId = userId;
-            _id = CreateAccessToken();
+            _id = Guid.NewGuid().ToString();
         }
 
         public string Id
@@ -39,13 +39,5 @@ namespace WebApiBlog.Models
             get { return _validFrom; }
         }
 
-        private string CreateAccessToken()
-        {
-            var algorithm = new SHA256Managed();
-            var plainText = Encoding.UTF8.GetBytes(Guid.NewGuid().ToString());
-            
-            var hash = algorithm.ComputeHash(plainText);
-            return Convert.ToBase64String(hash);
-        }
     }
 }

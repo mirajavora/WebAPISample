@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using WebApiBlog.App_Start;
 using WebApiBlog.Core;
+using WebApiBlog.Core.DataAccess;
 using WebApiBlog.Core.DependencyResolvers;
 using WebApiBlog.Core.Handlers;
 using WebApiBlog.Core.Installers;
@@ -28,7 +29,9 @@ namespace WebApiBlog
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             GlobalConfiguration.Configuration.Formatters.Add(new QrMediaFormatter());
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthenticationHandler());
+            GlobalConfiguration.Configuration.MessageHandlers.Add(
+                new AuthenticationHandler(Container.Resolve<IAccessTokenRepository>(),
+                                          Container.Resolve<IUserRepository>()));
             GlobalConfiguration.Configuration.MessageHandlers.Add(new ResponseHeaderHandler());
         }
 

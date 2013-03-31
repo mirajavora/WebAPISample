@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using WebApiBlog.Core.Services;
 
 namespace WebApiBlog.Core.Installers
 {
@@ -8,7 +9,7 @@ namespace WebApiBlog.Core.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-
+            container.Register(Component.For<IAuthenticationService>().ImplementedBy<AuthenticationService>());
         }
     }
 }
