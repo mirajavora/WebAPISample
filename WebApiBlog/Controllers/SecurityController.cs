@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using WebApiBlog.Core.DataAccess;
 using WebApiBlog.Core.Services;
@@ -38,6 +39,12 @@ namespace WebApiBlog.Controllers
             _accessTokenRepository.Save(token);
             Response.Cookies.Add(new HttpCookie("token", token.Id) { Expires = token.Expires, Path = "/" });
 
+            return RedirectToAction("Index", "Security");
+        }
+
+        public ActionResult Logout()
+        {
+            Response.Cookies["token"].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Index", "Security");
         }
     }

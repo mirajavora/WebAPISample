@@ -18,7 +18,7 @@
         </table>
     </div>
     <div class="row-fluid">
-        <div class="span6">
+        <div class="span6 login-form">
             @{ Html.BeginForm("Index", "Security", FormMethod.Post, new { @class = "form-horziontal" });}
             <fieldset>
                 <legend>Login to access secure API</legend>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="control-group">
                     @Html.LabelFor(x => x.Password)
-                    @Html.TextBoxFor(x => x.Password)
+                    @Html.PasswordFor(x => x.Password)
                 </div>
                 <div class="form-actions">
                     <input type="submit" class="btn btn-primary" value="Log In" />
@@ -61,6 +61,7 @@
 {
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
     <script src="~/Scripts/handlebars.js"></script>
 
     <script type="text/javascript">
@@ -130,6 +131,11 @@
                 contactManager.create($("form").serialize());
                 contactManager.getAll();
             });
+            if ($.cookie("token") === undefined) {
+                
+            } else {
+                $(".login-form").html("<h2>Logged in</h2><p>Token: "+ $.cookie("token") +"</p><a href='/security/logout' class='btn'>Logout</a>");
+            }
         });
     </script>
     
