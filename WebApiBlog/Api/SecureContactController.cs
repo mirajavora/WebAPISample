@@ -21,19 +21,19 @@ namespace WebApiBlog.Api
             return base.Get();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public override System.Net.Http.HttpResponseMessage Delete(Guid id)
         {
             return base.Delete(id);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public override System.Net.Http.HttpResponseMessage Post(Contact entity)
         {
             return base.Post(entity);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public override System.Net.Http.HttpResponseMessage Put(Guid id, Contact entity)
         {
             return base.Put(id, entity);

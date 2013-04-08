@@ -18,7 +18,8 @@ namespace WebApiBlog.Core.Services
             //create couple of default users
             var salt = GenerateSalt(6);
             var saltedPass = GenerateSaltedHash(Encoding.UTF8.GetBytes("pass"), salt);
-            _userRepository.Save(new User("joe", Convert.ToBase64String(saltedPass), Convert.ToBase64String(salt)));
+            _userRepository.Save(new User("joe", Convert.ToBase64String(saltedPass), Convert.ToBase64String(salt), new [] {Roles.Administrator}));
+            _userRepository.Save(new User("bob", Convert.ToBase64String(saltedPass), Convert.ToBase64String(salt), new[] { Roles.Consumer }));
         }
 
         public AuthenticationResult Authenticate(LoginModel loginModel)

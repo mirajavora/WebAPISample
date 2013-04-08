@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http;
 using System.Security.Principal;
 using System.Threading;
 using System.Web.Http.Hosting;
@@ -31,7 +32,7 @@ namespace WebApiBlog.Core.Handlers
             var user = _userRepository.FindById(token.UserId);
 
             var identity = new GenericIdentity(user.Username, "Basic");
-            var principal = new GenericPrincipal(identity, new[] {"Administrator"});
+            var principal = new GenericPrincipal(identity, user.Roles.ToArray());
             Thread.CurrentPrincipal = principal;
 
             return base.SendAsync(request, cancellationToken);
